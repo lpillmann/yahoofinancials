@@ -28,6 +28,7 @@ setup(
         "peewee>=3.16.2",
         "beautifulsoup4>=4.11.1",
         "lxml>=4.9.1",
+        "curl_cffi>=1.17.1",
     ],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
