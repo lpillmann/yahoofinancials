@@ -1,7 +1,7 @@
 import functools
 from functools import lru_cache
 from urllib3.util import Retry
-import requests as requests
+from curl_cffi import requests
 from requests import Session
 from requests.adapters import HTTPAdapter
 from requests.exceptions import ConnectionError, RetryError
@@ -441,7 +441,8 @@ class SessionManager(metaclass=SingletonMeta):
             'cookies': cookies,
             'proxies': proxy,
             'timeout': timeout,
-            'headers': user_agent_headers or self.user_agent_headers
+            'headers': user_agent_headers or self.user_agent_headers,
+            'impersonate': "chrome"
         }
         response = self._session.get(**request_args)
         if response.status_code >= 400:
@@ -453,7 +454,8 @@ class SessionManager(metaclass=SingletonMeta):
             cookie, crumb, strategy = self._get_cookie_and_crumb(proxy, timeout)
             request_args['params']['crumb'] = crumb
             if strategy == 'basic':
-                request_args['cookies'] = {cookie.name: cookie.value}
+                # request_args['cookies'] = {cookie.name: cookie.value}
+                pass
             response = self._session.get(**request_args)
 
         return response
