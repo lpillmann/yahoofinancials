@@ -432,8 +432,7 @@ class SessionManager(metaclass=SingletonMeta):
             crumbs = {}
         if strategy == 'basic' and cookie is not None:
             # Basic cookie strategy adds cookie to GET parameters
-            # cookies = {cookie.name: cookie.value}
-            pass
+            cookies = None
         else:
             cookies = None
         request_args = {
@@ -455,8 +454,8 @@ class SessionManager(metaclass=SingletonMeta):
             cookie, crumb, strategy = self._get_cookie_and_crumb(proxy, timeout)
             request_args['params']['crumb'] = crumb
             if strategy == 'basic':
-                # request_args['cookies'] = {cookie.name: cookie.value}
-                pass
+                request_args['cookies'] = None
+                
             response = self._session.get(**request_args)
 
         return response

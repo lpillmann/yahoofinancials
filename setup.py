@@ -9,12 +9,10 @@ with codecs.open('README.rst', encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='yahoofinancials',
-    version='1.20',
+    name='yahoofinancials_gemma_analytics',
+    version='1.23',
     description='A powerful financial data module used for pulling both fundamental and technical data from Yahoo Finance',
     long_description=long_description,
-    url='https://github.com/JECSand/yahoofinancials',
-    download_url='https://github.com/JECSand/yahoofinancials/archive/1.20.tar.gz',
     author='Connor Sanders',
     author_email='connor@exceleri.com',
     license='MIT',
