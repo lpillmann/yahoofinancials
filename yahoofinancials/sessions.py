@@ -295,7 +295,7 @@ class SessionManager(metaclass=SingletonMeta):
         get_args = {
             'url': "https://query1.finance.yahoo.com/v1/test/getcrumb",
             'headers': self.user_agent_headers,
-            'cookies': {cookie.name: cookie.value},
+            # 'cookies': {cookie.name: cookie.value},
             'proxies': proxy,
             'timeout': timeout,
             'allow_redirects': True
@@ -432,7 +432,8 @@ class SessionManager(metaclass=SingletonMeta):
             crumbs = {}
         if strategy == 'basic' and cookie is not None:
             # Basic cookie strategy adds cookie to GET parameters
-            cookies = {cookie.name: cookie.value}
+            # cookies = {cookie.name: cookie.value}
+            pass
         else:
             cookies = None
         request_args = {
